@@ -1,1 +1,15 @@
-<p>forum works!</p>
+<div class="forum-wrapper">
+    <div class="data">
+        <div class="username">{{userController.getAuthorizedUser()}}</div>
+
+        <div *ngIf="!userController.isUserAuthorized()" class="buttons-wrapper">
+            <button class="logInBtn" mat-raised-button color="accent">Sign In</button>
+            <button class="registerBtn" routerLink="SignUp" mat-raised-button color="accent">Sign Up</button>
+        </div>
+
+        <button *ngIf="userController.isUserAuthorized()" class="logInBtn" mat-raised-button color="accent">Sign Out</button>
+    </div>
+    
+    <app-chat></app-chat>
+</div>
+

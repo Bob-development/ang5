@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsersControllerService } from '../../services/users-controller.service';
 
 @Component({
   selector: 'app-forum',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './forum.component.css'
 })
 export class ForumComponent {
+  constructor(
+    public userController: UsersControllerService
+  ){
+    
+  }
+
 
 }

@@ -1,0 +1,30 @@
+<div class="chat-wrapper">
+    <div class="chatSideBar">
+        <div class="addFriends">
+            <mat-form-field class="example-form-field">
+                <mat-label>Add Friends</mat-label>
+                
+                <input matInput type="text" [(ngModel)]="inputValue">
+                @if (inputValue) {
+                  <button matSuffix mat-icon-button aria-label="Clear" (click)="inputValue = '' ">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                }
+            </mat-form-field>
+
+            <button mat-stroked-button>Add</button>
+        </div>
+
+        <div class="chats">
+            <div class="user">huy</div>
+            <div class="user">huy</div>
+            <div class="user">huy</div>
+            <div class="user">huy</div>
+        </div>
+    </div>
+
+    <div class="chat">
+        <div class="chat-name">Pizda</div>
+    </div>
+</div>
+

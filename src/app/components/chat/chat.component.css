@@ -1,0 +1,48 @@
+.chat-wrapper{
+    display: flex;
+}
+
+.chatSideBar{
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 30px;
+    border: 3px solid;
+}
+
+
+.addFriends{
+    margin: 50px 0px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.chats{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.user{
+    font-size: 25px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.chat{
+    width: 500px;
+    border-top: 3px solid;
+    border-right: 3px solid;
+    border-bottom: 3px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-name{
+    padding: 30px;
+    font-size: 25px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border-bottom: 3px solid;
+}
