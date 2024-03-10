@@ -12,19 +12,20 @@
                 }
             </mat-form-field>
 
-            <button mat-stroked-button>Add</button>
+            <button (click)="usersController.addFriends(inputValue)" mat-stroked-button>Add</button>
         </div>
 
         <div class="chats">
-            <div class="user">huy</div>
-            <div class="user">huy</div>
-            <div class="user">huy</div>
-            <div class="user">huy</div>
+            <button (click)="chooseChat($event)" value="{{friend.name}}" *ngFor="let friend of usersController.getAuthorizedUserFriends()" class="friendBtn">{{friend.name}}</button>
         </div>
     </div>
 
     <div class="chat">
-        <div class="chat-name">Pizda</div>
+        <div class="chat-name">{{chosenChat}}</div>
+        <div class="messages">Pizda</div>
+        <div class="messageBox">
+            <input [(ngModel)]="message" class="message" placeholder="Enter message">
+        </div>
     </div>
 </div>
 

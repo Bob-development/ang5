@@ -8,10 +8,12 @@ import { UsersControllerService } from '../../services/users-controller.service'
 })
 export class ForumComponent {
   constructor(
-    public userController: UsersControllerService
-  ){
-    
+    public usersController: UsersControllerService
+  ){}
+  
+  public setName(){
+    return this.usersController.getAuthorizedUser().name
   }
 
-
+  
 }

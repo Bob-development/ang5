@@ -23,7 +23,7 @@
 .chats{
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 30px;
 }
 
 .user{
@@ -45,4 +45,31 @@
     font-size: 25px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     border-bottom: 3px solid;
+}
+
+.friendBtn{
+    background-color: inherit;
+    border: 1px solid;
+    width: 150px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    border-color: rgba(85, 85, 85, 0.333);
+    cursor: pointer;
+}
+
+.friendBtn:hover{
+    background-color: rgba(85, 85, 85, 0.099);
+}
+
+.messages{
+    height: 100%;
+    width: 92%;
+    padding: 20px;
+}
+
+.message{
+    width: 98.5%;
+    height: 100px;
+    font-size: 25px;
 }

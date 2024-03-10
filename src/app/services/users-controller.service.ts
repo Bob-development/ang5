@@ -1,33 +1,87 @@
 import { Injectable } from '@angular/core';
+import { IPerson } from '../../interfaces/Person';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersControllerService {
-  private defaultUser: string = 'No Name';
-  private authorizedUser: object | string = this.defaultUser;
-  private isAuthorizedUser:boolean = false;
-  private users: object[] = [];
+  private defaultUser: string = '';
+  // private authorizedUser: any = this.defaultUser;
+  // private isUserAuthorized: boolean = false;
+  private isUserAuthorized: boolean = true;
+  private users: IPerson[] = [
+    {
+        email: 'as@asd',
+        password: 'zxcV12',
+        name: 'John',
+        friends: [
+          {
+            email: 'asd@asd',
+            password: 'zxxV12',
+            name: 'Mike',
+            friends: [],
+            isAuthorized: false
+          },
+          {
+            email: 'ask@asd',
+            password: 'zxcV12',
+            name: 'Ellie',
+            friends: [],
+            isAuthorized: false
+          }
+        ],
+        // isAuthorized: false
+        isAuthorized: true
+    }
+  ];
+
+  private authorizedUser: any = this.users[0];
+
 
   constructor() {}
+
+  public getUsers(){
+    return this.users;
+  }
 
   public getAuthorizedUser() {
     return this.authorizedUser;
   }
 
-  public isUserAuthorized(){
-    return this.isAuthorizedUser;
+  public getAuthorizedUserFriends(){
+    return this.authorizedUser.friends
+  }
+
+  public isAuthorizedUser(){
+    return this.isUserAuthorized;
   }
   
-  public setAuthorizedUser(user: object){
+  public enableAuthorizedUser(user: IPerson){
     this.authorizedUser = user;
+    this.isUserAuthorized = true;
+    user.isAuthorized = true;
   }
 
-  public toogleAuthorizedUser(){
-    typeof this.authorizedUser !== 'string' ? console.log('huy') : console.log('pizda');
+  public disableAuthorizedUser(){
+    this.authorizedUser.isAuthorized = false;
+    this.authorizedUser = this.defaultUser;
+    this.isUserAuthorized = false;
   }
 
-  public addUserToData(user: object){
+  public addUserToData(user: IPerson){
     this.users.push(user);
+  }
+
+  public addFriends(nameOfFriend: string){
+    const friend: IPerson = this.users.filter((user) => user.name === nameOfFriend)[0]
+
+    if(friend !== undefined){
+      const authorizedUserFriends: IPerson[] = this.authorizedUser.friends;
+  
+      authorizedUserFriends.push(friend);
+
+      console.log(this.authorizedUser);
+      
+    } else alert('I cant find ur friend :(')
   }
 }

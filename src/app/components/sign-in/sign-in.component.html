@@ -1,1 +1,24 @@
-<p>sign-in works!</p>
+<div class="signIn-wrapper">
+    <form class="signIn">
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="emailMatcher"
+                   placeholder="Ex. pat@example.com">
+            @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+              <mat-error>Please enter a valid email address</mat-error>
+            }
+            @if (emailFormControl.hasError('required')) {
+              <mat-error>Email is <strong>required</strong></mat-error>
+            }
+        </mat-form-field>
+    
+        <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input type="text" matInput [formControl]="passFormControl" [errorStateMatcher]="passMatcher"
+                   placeholder="Ex. aA123asd">
+            <mat-error *ngIf="passMatcher">Your password is invalid !</mat-error>
+        </mat-form-field>
+        
+        <button (click)="signIn()" mat-raised-button color="accent">Sign IN</button>
+    </form>
+</div>

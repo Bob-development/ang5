@@ -4,7 +4,6 @@
             <mat-label>Email</mat-label>
             <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="emailMatcher"
                    placeholder="Ex. pat@example.com">
-            <mat-hint>Errors appear instantly!</mat-hint>
             @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
               <mat-error>Please enter a valid email address</mat-error>
             }
@@ -17,10 +16,14 @@
             <mat-label>Password</mat-label>
             <input type="text" matInput [formControl]="passFormControl" [errorStateMatcher]="passMatcher"
                    placeholder="Ex. aA123asd">
-            <mat-hint>Errors appear instantly!</mat-hint>
             <mat-error *ngIf="passMatcher">Your password is invalid !</mat-error>
         </mat-form-field>
 
-        <button mat-raised-button color="accent">Sign UP</button>
+        <mat-form-field class="example-full-width">
+          <mat-label>NickName</mat-label>
+          <input [formControl]="nickName" matInput placeholder="Enter ur NickName">
+        </mat-form-field>
+        
+        <button (click)="signUp()" mat-raised-button color="accent">Sign UP</button>
     </form>
 </div>
