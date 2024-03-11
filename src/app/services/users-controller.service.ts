@@ -4,39 +4,36 @@ import { IPerson } from '../../interfaces/Person';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UsersControllerService {
   private defaultUser: string = '';
-  // private authorizedUser: any = this.defaultUser;
-  // private isUserAuthorized: boolean = false;
-  private isUserAuthorized: boolean = true;
+  private authorizedUser: any = this.defaultUser;
+  private isUserAuthorized: boolean = false;
   private users: IPerson[] = [
-    {
-        email: 'as@asd',
-        password: 'zxcV12',
-        name: 'John',
-        friends: [
-          {
-            email: 'asd@asd',
-            password: 'zxxV12',
-            name: 'Mike',
-            friends: [],
-            isAuthorized: false
-          },
-          {
-            email: 'ask@asd',
-            password: 'zxcV12',
-            name: 'Ellie',
-            friends: [],
-            isAuthorized: false
-          }
-        ],
-        // isAuthorized: false
-        isAuthorized: true
-    }
+    // {
+    //     email: 'as@asd',
+    //     password: 'zxcV12',
+    //     name: 'John',
+    //     friends: [
+    //       {
+    //         email: 'asd@asd',
+    //         password: 'zxxV12',
+    //         name: 'Mike',
+    //         friends: [],
+    //         isAuthorized: false
+    //       },
+    //       {
+    //         email: 'ask@asd',
+    //         password: 'zxcV12',
+    //         name: 'Ellie',
+    //         friends: [],
+    //         isAuthorized: false
+    //       }
+    //     ],
+    //     // isAuthorized: false
+    //     isAuthorized: true
+    // }
   ];
-
-  private authorizedUser: any = this.users[0];
-
 
   constructor() {}
 

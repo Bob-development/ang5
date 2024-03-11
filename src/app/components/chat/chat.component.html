@@ -4,15 +4,15 @@
             <mat-form-field class="example-form-field">
                 <mat-label>Add Friends</mat-label>
                 
-                <input matInput type="text" [(ngModel)]="inputValue">
-                @if (inputValue) {
-                  <button matSuffix mat-icon-button aria-label="Clear" (click)="inputValue = '' ">
+                <input matInput type="text" [(ngModel)]="findFriend">
+                @if (findFriend) {
+                  <button matSuffix mat-icon-button aria-label="Clear" (click)="findFriend = '' ">
                     <mat-icon>close</mat-icon>
                   </button>
                 }
             </mat-form-field>
 
-            <button (click)="usersController.addFriends(inputValue)" mat-stroked-button>Add</button>
+            <button (click)="usersController.addFriends(findFriend)" mat-stroked-button>Add</button>
         </div>
 
         <div class="chats">
@@ -21,10 +21,24 @@
     </div>
 
     <div class="chat">
-        <div class="chat-name">{{chosenChat}}</div>
-        <div class="messages">Pizda</div>
+        <div class="chat-name">
+            <p *ngIf="usersController.isAuthorizedUser()">
+                {{chosenChat}}
+            </p>
+        </div>
+
+        <div class="messages-wrapper">
+            <div *ngIf="usersController.isAuthorizedUser()" class="messages">
+                <div *ngFor="let message of messages" class="message">
+                    <p>{{message.sender}}:</p>
+                    <p>{{message.message}}</p>
+                </div>
+            </div>
+        </div>
+
         <div class="messageBox">
             <input [(ngModel)]="message" class="message" placeholder="Enter message">
+            <button (click)="sendMessage()" mat-stroked-button>Send</button>
         </div>
     </div>
 </div>
